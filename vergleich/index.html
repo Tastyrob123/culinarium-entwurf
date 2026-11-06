@@ -26,7 +26,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;paddin
 .kn b{font:500 11px/1 var(--mono);padding:4px 7px;border-radius:999px;background:var(--kerze);color:#1A120E}
 .kn.an b{background:#1A120E;color:var(--kerze-hell)}
 .buehne{position:fixed;inset:var(--kopf) 0 0 0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:1px;background:var(--linie)}
-.buehne.mit-kunde{grid-template-columns:1fr 1fr minmax(380px,.95fr)}
+.buehne.mit-kunde{grid-template-columns:repeat(3,minmax(0,1fr))}
 .buehne.mit-liste{padding-right:360px}
 .fenster{position:relative;background:var(--tief);min-width:0;min-height:0;display:flex;flex-direction:column}
 .f-rahmen{flex:1;position:relative;overflow:hidden;background:#1a1920}
@@ -278,7 +278,7 @@ function tab(t) { buehne.setAttribute('data-tab', t); document.querySelectorAll(
 document.querySelectorAll('.tabs button').forEach(function (b) { b.onclick = function () { tab(b.getAttribute('data-tab')); if (b.getAttribute('data-tab') === 'kunde' && !buehne.classList.contains('mit-kunde')) document.getElementById('kn-kunde').click(); }; });
 window.addEventListener('resize', function () { clearTimeout(window._rt); window._rt = setTimeout(neuMessen, 150); });
 baueListe(); zeichneSeiten(); masse();
-fa.src = 'alt/' + seite + '.htm' + 'l'; fn.src = '../' + seite + '.htm' + 'l';
+fa.src = 'alt/' + seite + '.htm' + 'l'; fn.src = '../' + seite + '.htm' + 'l'; fk.src = 'kunde/' + seite + '.htm' + 'l';
 </script>
 </body>
 </html>
