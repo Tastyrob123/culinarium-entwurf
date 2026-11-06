@@ -648,3 +648,24 @@ document.addEventListener('click', function (e) {
   addEventListener('load', pruefe);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(pruefe);
 })();
+
+/* Menüs direkt aus der Pairing-Karte (06.11.2026, Robert: «Das soll direkt alles durch die Tools passieren»): Auf «Alle Abende» liest die Seite beim Öffnen
+   assets/karten.json, die das Werkzeug beim Veröffentlichen schreibt. Jedes im Werkzeug veröffentlichte Menü (von_hand) ersetzt die Gänge im Fenster seines Abends;
+   die Kopfzeile der Karte und «Vom Pass» bleiben. Ohne Datei oder ohne Netz bleibt die Seite, wie sie gebaut ist. */
+(function () {
+  if (!document.querySelector('[id^="ad-"] .mk2')) return;
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+  fetch('assets/karten.json?t=' + Date.now(), { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (d) {
+    if (!d || !d.abende) return;
+    Object.keys(d.abende).forEach(function (k) {
+      var a = d.abende[k], box = document.getElementById('ad-' + k), mk = box && box.querySelector('.mk2');
+      if (!mk || !a.von_hand || !a.gaenge || !a.gaenge.length) return;
+      var pass = [].filter.call(mk.querySelectorAll('.mk2-g'), function (g) { var n = g.querySelector('.mk2-n'); return n && /Vom Pass/.test(n.textContent); });
+      [].forEach.call(mk.querySelectorAll('.mk2-g, .mk2-q'), function (x) { x.remove(); });
+      var html = a.gaenge.map(function (g) { return '<div class="mk2-g"><p class="mk2-n">' + esc(g[0]) + '</p>' + (g[1] ? '<p class="mk2-t">' + esc(g[1]) + '</p>' : '') + (g[2] ? '<p class="mk2-d">' + esc(g[2]) + '</p>' : '') + '</div>'; }).join('');
+      mk.insertAdjacentHTML('beforeend', html);
+      pass.forEach(function (p) { mk.appendChild(p); });
+      mk.dataset.ausWerkzeug = a.stand_zeit || '1';
+    });
+  }).catch(function () { /* bleibt, wie gebaut */ });
+})();
