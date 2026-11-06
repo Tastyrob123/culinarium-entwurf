@@ -1117,6 +1117,7 @@ html.js .mk-buch.da .mk-seite{transform:rotateY(-6deg)}
 .te-inhalt{position:relative;z-index:2;width:100%;max-width:var(--max);margin:0 auto;padding:clamp(60px,10vh,120px) var(--rand);color:#FAF4F4}
 .te-inhalt .gross{color:#FAF4F4}
 .te-zahlen{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.6vw,40px);margin:clamp(28px,5vh,56px) 0 clamp(22px,3vh,34px)}
+.te-zahlen.drei{grid-template-columns:repeat(3,minmax(0,1fr))}
 .te-z{display:flex;flex-direction:column;gap:12px;padding-top:18px;border-top:1px solid rgba(239,118,73,.8)}
 .te-z b{font:300 clamp(48px,6.4vw,104px)/.9 var(--titel);color:#FAF4F4;font-variation-settings:"SOFT" 100,"opsz" 144;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .te-z span{font:500 11px/1.5 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(250,244,244,.78)}
@@ -1127,6 +1128,7 @@ html.js .staffel.da>.te-z{opacity:1;transform:none}
   .menuekarte .mk-raster{grid-template-columns:1fr}
   .mk-buch{grid-template-columns:.8fr 1fr;min-height:0}
   .te-zahlen{grid-template-columns:1fr 1fr}
+  .te-zahlen.drei .te-z:last-child{grid-column:1/-1}
 }
 /* Warteliste: Bühne mit Fotos des Abends und der Tischkarte in 3D (Robert 26.10.2026: «dass man richtig Bock bekommt») */
 .warteliste{background-image:url(zeichen/tapete-dunkel.svg);background-size:224px 224px}
