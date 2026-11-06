@@ -43,7 +43,7 @@
     liste.innerHTML = t.map(function (x, i) {
       var d = datum(x.datum), frei = Math.max(0, x.plaetze - x.gebucht), voll = frei === 0;
       return '<article class="tb-p' + (voll ? ' voll' : '') + '" style="--ak:' + FARBEN[i % FARBEN.length] + ';--rot:' + NEIGUNG[i % NEIGUNG.length] + 'deg;--i:' + i + '">' +
-        '<span class="tb-p-nadel"></span><div class="tb-p-papier"><p class="tb-p-mit">A UNiQUE EXPERiENCE BY MOMO X RUDI</p><div class="tb-p-marke">' + marke + '</div>' +
+        '<span class="tb-p-nadel"></span><div class="tb-p-papier"><p class="tb-p-mit">A UNiQUE EXPERiENCE</p><div class="tb-p-marke">' + marke + '</div>' +
         '<p class="tb-p-dat">' + zwei(d.getDate()) + '.' + zwei(d.getMonth() + 1) + '.</p><p class="tb-p-tag">' + TAGE[d.getDay()] + ' · ab ' + esc(x.zeit) + '</p><span class="tb-p-linie"></span>' +
         '<p class="tb-p-frei">' + (voll ? 'Alle ' + x.plaetze + ' Plätze vergeben' : 'Noch ' + frei + ' von ' + x.plaetze + ' Plätzen frei') + '</p>' +
         '<p class="tb-p-preis">' + eur(+x.preis) + '</p>' +

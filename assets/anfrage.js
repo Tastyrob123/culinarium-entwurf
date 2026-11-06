@@ -185,7 +185,7 @@
     var A = ARTEN[art], s2 = karte.querySelector('[data-schritt="2"]');
     s2.innerHTML = '<p class="af-kicker">' + esc(A.kicker) + '</p>' +
       '<div class="af-ticket"><div class="af-t-marke"><svg class="marke" viewBox="0 0 364.78 40.36" role="img" aria-label="Culinarium"><use href="assets/zeichen/marke.svg?v=' + esc(V) + '#wm"/></svg></div>' +
-      '<p class="af-t-zeile">A UNiQUE EXPERiENCE BY MOMO X RUDI</p><p class="af-t-fuer">Für</p><p class="af-t-name">' + esc(name) + '</p>' +
+      '<p class="af-t-zeile">A UNiQUE EXPERiENCE</p><p class="af-t-fuer">Für</p><p class="af-t-name">' + esc(name) + '</p>' +
       (mehr.length ? '<p class="af-t-mehr">' + mehr.map(function (m) { return '<span>' + esc(m) + '</span>'; }).join('') + '</p>' : '') +
       '<p class="af-t-ok"><span>' + esc(A.ok) + '</span><span>Walk on the Wild Side</span></p></div>' +
       '<p class="af-danke" id="af-danke">' + esc(A.danke) + '</p>' +
