@@ -585,7 +585,7 @@
 /* Alle Abende, Übergang «Die Schere»: Fortschritt der stehenden Bühne als --k (0 oben, 1 am Ende) */
 (function () {
   var bu = document.querySelector('.kg-buehne'); if (!bu) return;
-  function r() { var h = bu.getBoundingClientRect(), k = Math.min(1, Math.max(0, -h.top / (h.height - innerHeight))); bu.style.setProperty('--k', k.toFixed(4)); }
+  function r() { var h = bu.getBoundingClientRect(), k = Math.min(1, Math.max(0, -h.top / (h.height - innerHeight))); bu.style.setProperty('--sk', k.toFixed(4)); }
   addEventListener('scroll', function () { requestAnimationFrame(r); }, { passive: true });
   addEventListener('resize', r); r();
 })();

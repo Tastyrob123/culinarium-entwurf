@@ -2569,9 +2569,9 @@ html.js .ad .ad-plakat.da,html.js .ad .ad-k-b.da,html.js .ad .ad-plakat.da img,h
 .kg-buehne+#fenster-abende{margin-top:-220vh;height:calc(220vh + 24vh)!important;z-index:1}   /* Nachlauf nach der Schere gekürzt (Robert 28.10.2026: «dauert zu lange, bis ich dann weiterkomme»), davor min(66vh,640px) */
 .kg-buehne .kg-h{transition:none!important}
 .kg-buehne .kg-grund,.kg-buehne .kg-text{will-change:transform,opacity}
-.kg-buehne .kg-h.l{transform:translateY(calc(var(--k,0) * -118%))!important}
-.kg-buehne .kg-h.r{transform:translateY(calc(var(--k,0) * 118%))!important}
-.kg-buehne .kg-grund,.kg-buehne .kg-text{opacity:calc(1 - var(--k,0)*2.4)}
+.kg-buehne .kg-h.l{transform:translateY(calc(var(--sk,0) * -118%))!important}
+.kg-buehne .kg-h.r{transform:translateY(calc(var(--sk,0) * 118%))!important}
+.kg-buehne .kg-grund,.kg-buehne .kg-text{opacity:calc(1 - var(--sk,0)*2.4)}
 @media (max-width:860px){.kg-buehne+#fenster-abende{height:calc(220vh + 20svh)!important}}
 
 
